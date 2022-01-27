@@ -29,6 +29,7 @@ int main() {
     student.gpa = 3.5;
     student.grad_yr = 2021;
 
+    int a = 3;
     can_vote = checkID(student, 18);
     if (can_vote) {
         printf("%s is %d years old and can vote.\n",
@@ -37,6 +38,7 @@ int main() {
         printf("%s is only %d years old and cannot vote.\n",
                 student.name, student.age);
     }
+    printf("%d\n", a);
 
     return 0;
 }

@@ -9,7 +9,11 @@ int largest(int arr[], int n) {
       large = arr[i];
     }
   }
+<<<<<<< HEAD
   return large; 
+=======
+  return large;
+>>>>>>> 234ba69b4c6df669fd52ada765b79a086b26cda2
 }
 
 int main() {
