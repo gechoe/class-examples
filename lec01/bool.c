@@ -2,9 +2,14 @@
 
 int isEven(int val) {
   if (val % 2 == 0) {
-    return 0;
+    return 1;
   }
-  return 1;
+  return 0;
+
+  /* Or the if statment above can be replaced with:
+   * return (val % 2 == 0);
+   * They would both perform the same action.
+   */
 }
 
 int main() {
