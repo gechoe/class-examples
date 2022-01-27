@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+int z;
 int func(int a, int b) {
 	a = a + 5;
 	return a - b;
