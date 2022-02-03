@@ -1,3 +1,5 @@
+//Code for copying one text file and create a new one with the copied text.
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -11,7 +13,8 @@ int main() {
     exit(1);
   }
 
-  outfile = fopen("/home/alinen/output.txt", "w");
+  outfile = fopen("/home/gchoe/CS223/class-examples/lec04/output.txt", "w");
+
   if (outfile == NULL) {
     printf("Error: unable to open outfile\n");
     exit(1);

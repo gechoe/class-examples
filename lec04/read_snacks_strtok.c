@@ -20,6 +20,8 @@ int main() {
     if (token != NULL) strcpy(name, token);
 
     token = strtok(NULL, ","); // use same buffer as before
+    
+    //atof is string to float
     if (token != NULL) cost = atof(token);
 
     printf("Read data: %s $%.2f\n", name, cost);    

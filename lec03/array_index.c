@@ -13,7 +13,7 @@ int main() {
   }
 
   printf("-------\n");
-  for (int* ptr = vals; ptr < vals+4; ptr++) {
+  for (int* ptr = vals; ptr < vals+4; ptr++) { //ptr++ adds one to pointer, we go to next position
     printf("%d\n", *ptr);
   }
 

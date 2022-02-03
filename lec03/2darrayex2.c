@@ -1,3 +1,5 @@
+//A 2d dynamically allocated array that is the "flat kind"
+
 #include <stdio.h>
 #include <stdlib.h>
 

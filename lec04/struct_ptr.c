@@ -19,20 +19,24 @@ void print(const char* prefix, struct studentT s) {
   printf("--------------------\n");
 }
 
-void changeName(struct studentT s, char* newName) {
+//We need struct pointers!! Here, we need as struct pointer for studentT s.
+void changeName(struct studentT* s, char* newName) {
   if (newName == NULL) {
     return;
   }
-  strcpy(s.name, newName);
+
+  //Below the two strcpy are the smae, one is just shorthand version due to constant usage.
+  strcpy((s*).name, newName);
+  strcpy(s->name, newName);
 }
 
-void changeGpa(struct studentT s, float newGpa) {
-  s.gpa = newGpa;
+void changeGpa(struct studentT* s, float newGpa) {
+  s->gpa = newGpa;
 }
 
 int main() {
     struct studentT student1;
-
+    
     strcpy(student1.name, "Ruth");
     student1.age = 17;
     student1.gpa = 3.5;
