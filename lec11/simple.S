@@ -7,7 +7,11 @@
 	.globl	main
 	.type	main, @function
 main:
+<<<<<<< HEAD
 .LFB0:
+=======
+bc2bbB0:
+>>>>>>> 9e63a2f6706b3d88624f57bbfa31cf3f7b452461
 	.cfi_startproc
 	endbr64
 	pushq	%rbp
@@ -16,7 +20,11 @@ main:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
+<<<<<<< HEAD
 	movl	$13, -4(%rbp)
+=======
+	movl	$15, -4(%rbp)
+>>>>>>> 9e63a2f6706b3d88624f57bbfa31cf3f7b452461
 	movl	-4(%rbp), %eax
 	movl	%eax, %esi
 	leaq	.LC0(%rip), %rdi
