@@ -14,7 +14,13 @@
  * 	max: set to the largest value in the array
  *      returns: 0 on success and non-zero on an error
  */
-int findAndReturnMax(int *array1, int len, int max) {
+
+/**
+ * Before fixing code: the user wanted to print max as 60, but their max wasn't 
+ * being transferred from function to function, thus it only printed out what it
+ * was initialized ot 17.
+ */
+int findAndReturnMax(int *array1, int len, int *max) {
 
     int i;
 
@@ -22,7 +28,7 @@ int findAndReturnMax(int *array1, int len, int max) {
         return -1;
     }
     max = array1[0];
-    for (i=1; i <= len; i++) {
+    for (i=1; i < len; i++) {
         if (max < array1[i]) {
             max = array1[i];
         }
@@ -37,7 +43,7 @@ int main(int argc, char *argv[]) {
 
     int max = arr[0];
 
-    if ( findAndReturnMax(arr, 5, max) != 0 ) {
+    if ( findAndReturnMax(arr, 5, &max) != 0 ) {
         printf("strange error\n");
         exit(1);
     }
