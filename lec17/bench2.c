@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "rand.h"
+//These definitions here, ROUND, BUFFER, LOOP automatically convert/change any
+//instance of this to the designate int, like a global variable (traditional 
+//old c-style)
 #define ROUNDS 10
 #define BUFFER 100
 #define LOOP 100000
