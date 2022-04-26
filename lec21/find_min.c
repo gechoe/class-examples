@@ -1,3 +1,5 @@
+//program allocates size items, where it makes an array of length size and then
+//inserts random stuff
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>

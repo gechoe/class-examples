@@ -8,5 +8,6 @@ void example(int a) {
  
 int main() {
   functionType myFunction = example;
+  //Dereference function (*myfunction) then input the parameters (10) for it:
   (*myFunction)(10);
 }

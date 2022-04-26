@@ -8,6 +8,8 @@
  *  kill -INT  pid  (or Ctrl-C) will send a SIGINT
  *  kill -CONT pid  (or Ctrl-Z fg) will send a SIGCONT
  */
+//To have a function as a param, use a function pointer.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

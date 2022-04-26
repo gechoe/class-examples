@@ -16,10 +16,32 @@ void *start(void* userdata) {
   char buffer[1024];
 
   // todo
+  //int count = 0;
+  //char buffer[1024];
+
+//  pthread_mutex_lock(&mutex); //acquires the mutex lock
+  char *line = fgets(buffer, 1024, data->fp);  
+//  ppthread_mutex_unlock(&mutex); //release the mutex lock  
+
+  while (line != NULL) {
+    for (int i = 0; buffer[i] != '\0'; i++) {
+      if (buffer[i] >= 'a' && buffer[i] <= 'z') {
+        count++;
+      }
+      pthread_mutex_lock(&mutex);
+      line = fgets(buffer, 1024, data->fp);
+      pthread_mutex_unlock(&mutex);
+    }
+  }
+
+  pthread_mutex_lock(&mutex);
+  lettercount += count;
+  pthread_mutex_unlock(&mutex);
   return 0; 
 }
 
 int main() {
+  int count = 0;
   FILE* fp = fopen("tolstoy.txt", "r");
   if (!fp) {
     printf("Cannot open file!\n");
@@ -38,6 +60,7 @@ int main() {
   for (int i = 0; i < 4; i++) {
     pthread_join(threads[i], NULL); 
   }
+
   printf("count = %llu\n", lettercount);
   pthread_mutex_destroy(&mutex); 
 

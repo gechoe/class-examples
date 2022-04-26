@@ -4,6 +4,7 @@
 #include <sys/time.h>
 #include <math.h>
 
+//can create struct
 struct thread_data {
   float s;
   int start_index;
@@ -12,6 +13,7 @@ struct thread_data {
 };
 
 void *scalar_multiply(void *userdata) {
+  //tak void* and convert it into the datatype it really is
   struct thread_data *data = (struct thread_data *) userdata;
   for (int i = data->start_index; i < data->end_index; i++) {
     data->array[i] = sqrt(i)* data->s;
@@ -27,6 +29,7 @@ int main(int argc, char **argv) {
   struct thread_data *tdata;
   float data[100000];
 
+  //user specifies the number of threads
   if (argc !=2) {
     fprintf(stderr, "usage: %s <n>\n", argv[0]);
     fprintf(stderr, "where <n> is the number of threads\n");
@@ -35,6 +38,7 @@ int main(int argc, char **argv) {
   nthreads = strtol(argv[1], NULL, 10);
 
   // Allocate space for thread structs and identifiers.
+  //malloc used to make space for threads, each thread gets three things:
   thread_array = malloc(nthreads * sizeof(pthread_t));
   thread_ids = malloc(nthreads * sizeof(long));
   tdata = malloc(nthreads * sizeof(struct thread_data));
@@ -49,6 +53,8 @@ int main(int argc, char **argv) {
     tdata[i].start_index = i*subsize;
     tdata[i].end_index = (i+1)*subsize % 100000;
     tdata[i].array = data;
+    //pthread create spawns it
+    //scalar_multiply is the function pointer
     pthread_create(&thread_array[i], NULL, scalar_multiply, &tdata[i]);
   }
 

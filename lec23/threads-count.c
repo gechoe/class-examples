@@ -13,7 +13,7 @@ void *thread_count(void* args) {
       myid, pthread_self());
  
   for(i = 0; i < 100000; i++) {
-    count += 1;
+    count += 1; //3 steps: fetch current value, increment, save new value;
   }
 
   printf("goodbye I'm thread %d\n",myid);
