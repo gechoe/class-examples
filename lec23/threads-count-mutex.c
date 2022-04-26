@@ -13,11 +13,13 @@ void *thread_count(void* args) {
   printf("hello I'm thread %d with pthread_id %lu\n",
       myid, pthread_self());
  
+  int local_count = 0;
   for(i = 0; i < 100000; i++) {
-    pthread_mutex_lock(&mutex);
-    count += 1;
-    pthread_mutex_unlock(&mutex);
+    local_count += 1;
   }
+  pthread_mutex_lock(&mutex);
+  count += local_count;
+  pthread_mutex_unlock(&mutex);
 
   printf("goodbye I'm thread %d\n",myid);
   return (void *)0;

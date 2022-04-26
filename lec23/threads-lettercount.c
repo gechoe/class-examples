@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <unistd.h>
 
 struct thread_data {
   FILE* fp;
@@ -16,6 +17,20 @@ void *start(void* userdata) {
   char buffer[1024];
 
   // todo
+  char *line = fgets(buffer, 1024, data->fp);
+
+  while (line != NULL) {
+    printf("%d) %s\n", data->id, line);
+    for (int i = 0; buffer[i] != '\0'; i++) {
+      if (buffer[i] >= 'a' && buffer[i] <= 'z') {
+        count++;
+      }
+    } 
+    line = fgets(buffer, 1024, data->fp);
+  }
+  pthread_mutex_lock(&mutex);
+  lettercount += count;
+  pthread_mutex_unlock(&mutex);
   return 0; 
 }
 
